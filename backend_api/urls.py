@@ -10,5 +10,6 @@ urlpatterns = [
     path('api-token-auth/', drf_views.obtain_auth_token),
 ]
 
+# use following urls to test apis
 # Registration: POST to /api/register/ with user data to register a new user.
 # POST request to /api/api-token-auth/ with username and password.
