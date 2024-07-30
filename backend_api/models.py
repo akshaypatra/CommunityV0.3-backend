@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 # Create your models here.
 
-
+# model for custom user
 class CustomUser(AbstractUser):
     first_name=models.CharField(max_length=100)
     last_name=models.CharField(max_length=100)
@@ -19,3 +20,18 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+# model for profile  details for spicific user
+class ProfileInfo(models.Model):
+    user=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    bio=models.CharField(max_length=1000)
+    skills=models.CharField(max_length=1000)
+    work=models.CharField(max_length=1000)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.username
+
+

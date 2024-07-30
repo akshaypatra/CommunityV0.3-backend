@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from .models import ProfileInfo
 
 CustomUser = get_user_model()
 
@@ -26,3 +27,11 @@ class CustomUserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+
+class ProfileInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=ProfileInfo
+        fields = ['id', 'bio', 'skills', 'work', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at']
