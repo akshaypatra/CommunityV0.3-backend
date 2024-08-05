@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'backend_api',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     'dj_rest_auth',
     'allauth',
     'allauth.account',
@@ -54,6 +55,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
@@ -152,3 +155,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Custom user model if you have one
 AUTH_USER_MODEL = 'backend_api.CustomUser'
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
