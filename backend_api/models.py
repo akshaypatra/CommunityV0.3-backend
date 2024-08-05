@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name', 'college_name', 'state', 'city', 'enrollment_number', 'department', 'academic_year']
+    REQUIRED_FIELDS = [ 'first_name', 'last_name', 'college_name', 'state', 'city', 'enrollment_number', 'department', 'academic_year']
 
     def __str__(self):
         return self.email
